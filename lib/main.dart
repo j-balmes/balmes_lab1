@@ -159,24 +159,26 @@ class SkillsScreen extends StatelessWidget {
         ),
       ),
       padding: EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildSkillContainer(
-            title: 'Personal Skills',
-            skills: '• Communication\n• Team Work\n• Problem-Solving',
-          ),
-          _buildSkillContainer(
-            title: 'IT Skills',
-            skills:
-                '• Database Management\n• Data Analysis\n• IT Support',
-          ),
-          _buildSkillContainer(
-            title: 'Certifications',
-            skills:
-                '• National Certificate II Computer System Servicing\n• Count Her In\n• TechTalks III',
-          ),
-        ],
+      child: SingleChildScrollView(
+        child: Wrap(
+          spacing: 16.0, // Horizontal space between cards
+          runSpacing: 16.0, // Vertical space between rows
+          alignment: WrapAlignment.center, // Center the items in the row
+          children: [
+            _buildSkillContainer(
+              title: 'Personal Skills',
+              skills: '• Communication\n• Team Work\n• Problem-Solving',
+            ),
+            _buildSkillContainer(
+              title: 'IT Skills',
+              skills: '• Database Management\n• Data Analysis\n• IT Support',
+            ),
+            _buildSkillContainer(
+              title: 'Certifications',
+              skills: '• National Certificate II Computer System Servicing\n• Count Her In\n• TechTalks III',
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -201,6 +203,27 @@ class SkillsScreen extends StatelessWidget {
   }
 }
 
+
+  Widget _buildSkillContainer({required String title, required String skills}) {
+    return Card(
+      color: Colors.amber[100],
+      elevation: 4,
+      margin: EdgeInsets.symmetric(vertical: 8),
+      child: Padding(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(title, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            SizedBox(height: 8),
+            Text(skills),
+          ],
+        ),
+      ),
+    );
+  }
+
+
 class InterestsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -221,7 +244,7 @@ class InterestsScreen extends StatelessWidget {
           SizedBox(height: 8),
           Text(
             'Data analysis and visualization are fascinating and valuable skills. '
-            'They involve collecting, processing, and presenting data to reveal insights.',
+            'It involve collecting, processing, and presenting data to reveal insights.',
           ),
           SizedBox(height: 16),
           _buildInterestSection('Data Analysis', [
