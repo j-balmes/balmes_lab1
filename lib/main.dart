@@ -18,6 +18,7 @@ class MyProfileApp extends StatelessWidget {
         child: Scaffold(
           backgroundColor: Colors.teal,
           appBar: AppBar(
+            backgroundColor: Colors.teal,
             title: Text('PERSONAL PROFILE'),
             bottom: TabBar(
               indicatorColor: Colors.white,
